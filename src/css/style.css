@@ -1,0 +1,31 @@
+body {font-family: sans-serif;}
+body, .simple{padding:0;margin:0;}
+body, .green{background: #749C75;}
+img {vertical-align: middle;}
+.simple {border:0;outline:0;background-color:transparent;}
+.center {margin: 0 auto;}
+.invert {color: #FFF;}
+.marg5 {margin: 5px;}
+.marg5Horiz {margin: 0 5px;}
+.pad5 {padding: 5px;}
+.pad5Horiz {padding: 0 5px;}
+.pad5Vert {padding: 5px 0;}
+.brick {font-size: 1.3em;}
+.flex {display:flex;}
+.borderVert, .borderInvert {border: 2px solid;}
+.borderVert {border-left:0;border-right:0;}
+.borderInvert {border-color:#FFF;}
+
+.optionCont {
+	height: 384px;
+	width: 250px;
+}
+.fillHeight {min-height:100%;}
+.fillContainer {width: 100%;}
+
+.orange {background-color: #bc9d62;}
+.orange .selected {background-color: #fdc863;}
+.blue {background-color: #43629d;}
+
+button.green:hover {background-color:#4d824f;}
+.historyCont {min-height:150px;}
