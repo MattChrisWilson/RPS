@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Modal } from 'semantic-ui-react';
 import SelectionStrip from './SelectionStrip';
 import History from '../containers/history';
@@ -15,7 +16,8 @@ const inlineStyle = {
   }
 };
 
-export default class Game extends Component {
+/** The parent Rock Paper Scissors component */
+class Game extends Component {
 	componentDidUpdate(prevState) {
 		// If player one has made their choice, time for the ai to make it's mind up
 		if(this.props.lastActionBy === 1) {
@@ -84,3 +86,74 @@ export default class Game extends Component {
 		</div>
 	}
 }
+
+Game.propTypes = {
+	/** An object of player names */
+	names: PropTypes.shape({
+		1: PropTypes.string,
+		2: PropTypes.string
+	}),
+	/** An object of player selections */
+	selection: PropTypes.shape({
+		1: PropTypes.string,
+		2: PropTypes.string
+	}),
+	/** An object containing the game options: Rock, Paper, Scissors */
+	options: PropTypes.shape({
+		ROCK: PropTypes.shape({
+			image: PropTypes.string.isRequired,
+			beats: PropTypes.string.isRequired,
+		}),
+		PAPER: PropTypes.shape({
+			image: PropTypes.string.isRequired,
+			beats: PropTypes.string.isRequired,
+		}),
+		SCISSORS: PropTypes.shape({
+			image: PropTypes.string.isRequired,
+			beats: PropTypes.string.isRequired,
+		}),
+	}),
+	/** An object containing colour options for each player */
+	bgColours: PropTypes.shape({
+		1: PropTypes.string,
+		2: PropTypes.string
+	}),
+	/** Determines if an error has occurred */
+	hasError: PropTypes.bool,
+	/** The function to set player choice */
+	setPlayerChoice: PropTypes.func,
+	/** Function to reset the game's round */
+	resetRound: PropTypes.func,
+}
+
+Game.defaultProps = {
+	hasError: false,
+	options: {
+		ROCK: {
+			image: 'rock.png',
+			beats: 'SCISSORS',
+		},
+		PAPER: {
+			image: 'paper.png',
+			beats: 'ROCK',
+		},
+		SCISSORS: {
+			image: 'scissors.png',
+			beats: 'PAPER',
+		}
+	},
+	bgColours: {
+		1: 'orange',
+		2: 'blue'
+	},
+	names: {
+		1: 'Player 1',
+		2: 'Player 2'
+	},
+	selection: {
+		1: null,
+		2: null
+	}
+}
+
+export default Game
