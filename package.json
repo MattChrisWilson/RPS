@@ -94,5 +94,8 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "devDependencies": {
+    "react-docgen": "^2.20.1"
   }
 }
