@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import List from './List';
 
-export default class History extends Component {
+/** Displays the game history */
+class History extends Component {
 	getIntervalSinceNow(time) {
 		// Determine how long ago the entry was added based on the history key
 		const secs = Math.floor((new Date() - Date.parse(time)) / 1000)
@@ -21,3 +23,17 @@ export default class History extends Component {
 		</div>
 	}
 }
+
+History.propTypes = {
+	/** An array containing the history records with an object as value  */
+	history: PropTypes.array.isRequired,
+	/** Should the colours be inverted to accomodate a dark background */
+	invert: PropTypes.bool,
+}
+
+History.defaultProps = {
+	invert: false,
+	history: []
+}
+
+export default History
