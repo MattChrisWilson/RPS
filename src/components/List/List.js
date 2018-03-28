@@ -13,7 +13,7 @@ const List = (props) => {
 
 List.propTypes = {
 	/** The string to be displayed */
-	content: PropTypes.string,
+	content: PropTypes.array.isRequired,
 	/** Prefix for the list item key */
 	prefix: PropTypes.string,
 }

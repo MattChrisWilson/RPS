@@ -95,22 +95,22 @@ Game.propTypes = {
 	}),
 	/** An object of player selections */
 	selection: PropTypes.shape({
-		1: PropTypes.string,
-		2: PropTypes.string
+		1: PropTypes.oneOf(['ROCK', 'PAPER', 'SCISSORS']),
+		2: PropTypes.oneOf(['ROCK', 'PAPER', 'SCISSORS'])
 	}),
 	/** An object containing the game options: Rock, Paper, Scissors */
 	options: PropTypes.shape({
 		ROCK: PropTypes.shape({
 			image: PropTypes.string.isRequired,
-			beats: PropTypes.string.isRequired,
+			beats: PropTypes.oneOf(['ROCK', 'PAPER', 'SCISSORS']).isRequired,
 		}),
 		PAPER: PropTypes.shape({
 			image: PropTypes.string.isRequired,
-			beats: PropTypes.string.isRequired,
+			beats: PropTypes.oneOf(['ROCK', 'PAPER', 'SCISSORS']).isRequired,
 		}),
 		SCISSORS: PropTypes.shape({
 			image: PropTypes.string.isRequired,
-			beats: PropTypes.string.isRequired,
+			beats: PropTypes.oneOf(['ROCK', 'PAPER', 'SCISSORS']).isRequired,
 		}),
 	}),
 	/** An object containing colour options for each player */
